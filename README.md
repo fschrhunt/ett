@@ -67,3 +67,16 @@ dialog itself. Password fields reject synthetic keystrokes regardless.
 
 `ctrl+opt` is the default because Command plus a digit switches browser tabs,
 Option plus a digit types symbols, and Control plus a digit can switch Spaces.
+
+## Development
+
+Run `./x check` before proposing a change (`./x` defaults to it). It checks shell
+syntax and compiles the release package in a temporary directory without launching
+ett, registering hotkeys, or reading personal settings. macOS and Xcode command
+line tools are required; other platforms fail explicitly rather than report a
+partial check as passing. `./x help` lists the individual commands.
+CI runs the same check on macOS for pull requests and pushes to main.
+
+There is no automated runtime test suite yet. For hotkey/typing changes, report
+manual verification and Accessibility limitations; a successful build does not
+verify keystroke delivery. Update affected usage/settings documentation.
