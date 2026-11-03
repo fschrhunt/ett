@@ -29,7 +29,6 @@ struct Response: Codable {
     var trusted: Bool?
 }
 
-/// The number of slots and the digit keys they map to.
 let slotCount = 9
 
 /// Location of the listener's socket: the per-user temp dir, which is private to the
@@ -41,7 +40,6 @@ func socketPath() -> String {
     return (dir.hasSuffix("/") ? dir : dir + "/") + "ett.sock"
 }
 
-/// Builds the sockaddr for a Unix socket path.
 func unixAddress(_ path: String) throws -> sockaddr_un {
     var addr = sockaddr_un()
     addr.sun_family = sa_family_t(AF_UNIX)
